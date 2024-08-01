@@ -12,6 +12,7 @@ test('shows error message on invalid email', async ({ page }) => {
   // await page.screenshot({ path: 'invalid-email.png' });
 
   const errorMessage = page.locator('text=Invalid email address');
+    //awaitが必要ないのは.locatorメソッドが同期処理だから
   await expect(errorMessage).toBeVisible();
 });
 
