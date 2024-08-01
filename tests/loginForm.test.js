@@ -9,10 +9,10 @@ test('shows error message on invalid email', async ({ page }) => {
   await page.click('button[type="submit"]');
 
   // デバッグ用にスクリーンショットを撮る
-  await page.screenshot({ path: 'invalid-email.png' });
+  // await page.screenshot({ path: 'invalid-email.png' });
 
   const errorMessage = page.locator('text=Invalid email address');
-  await expect(errorMessage).toBeVisible({ timeout: 10000 });
+  await expect(errorMessage).toBeVisible();
 });
 
 test('shows error message on short password', async ({ page }) => {
