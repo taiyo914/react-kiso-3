@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'; 
+  //testing-library/jest-domのver6以降から/extend-expectは使えなくなった。
 import LoginForm from '../src/assets/LoginForm';
 
 test('LoginForm renders correctly', () => {
