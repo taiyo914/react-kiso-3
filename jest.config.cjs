@@ -1,6 +1,6 @@
 // jest.config.js
 module.exports = {
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: ['/node_modules/', '/tests/'],
-  setupFilesAfterEnv: ['./setupTests.js'],
+  testPathIgnorePatterns: ['/tests/'],
+  // setupFilesAfterEnv: ['./setupTests.js'],
 };
