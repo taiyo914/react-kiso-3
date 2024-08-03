@@ -9,12 +9,12 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email.includes('@')) {
-      setError('Invalid email address');
+      setError('有効なメールアドレスではありません');
     } else if (password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError('パスワードは6文字以上で入力してください');
     } else {
       setError('');
-      // Handle login (not implemented)
+      // ログイン処理
     }
   };
 

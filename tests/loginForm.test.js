@@ -1,7 +1,7 @@
 // tests/loginForm.test.js
 import { test, expect } from '@playwright/test';
 
-test('shows error message on invalid email', async ({ page }) => {
+test('@のないメールアドレスに対してエラーメッセージが出る', async ({ page }) => {
   await page.goto('/');
   
   await page.fill('input[type="email"]', 'invalid-email');
@@ -11,31 +11,31 @@ test('shows error message on invalid email', async ({ page }) => {
   // デバッグ用にスクリーンショットを撮る
   // await page.screenshot({ path: 'invalid-email.png' });
 
-  const errorMessage = page.locator('text=Invalid email address');
+  const errorMessage = page.locator('text=有効なメールアドレスではありません');
     //awaitが必要ないのは.locatorメソッドが同期処理だから
   await expect(errorMessage).toBeVisible();
 });
 
-test('shows error message on short password', async ({ page }) => {
+test('6文字未満のパスワードに対してエラーメッセージが出る', async ({ page }) => {
   await page.goto('/');
   
   await page.fill('input[type="email"]', 'test@example.com');
   await page.fill('input[type="password"]', '123');
   await page.click('button[type="submit"]');
   
-  const errorMessage = page.locator('text=Password must be at least 6 characters long');
+  const errorMessage = page.locator('text=パスワードは6文字以上で入力してください');
   await expect(errorMessage).toBeVisible();
 });
 
-test('does not show error message when inputs are valid', async ({ page }) => {
+test('有効なメールアドレスとパスワードに対してエラーメッセージが出ない', async ({ page }) => {
   await page.goto('/');
   
   await page.fill('input[type="email"]', 'test@example.com');
   await page.fill('input[type="password"]', 'password123');
   await page.click('button[type="submit"]');
   
-  const emailError = page.locator('text=Invalid email address');
-  const passwordError = page.locator('text=Password must be at least 6 characters long');
+  const emailError = page.locator('text=有効なメールアドレスではありません');
+  const passwordError = page.locator('text=パスワードは6文字以上で入力してください');
   await expect(emailError).toHaveCount(0);
   await expect(passwordError).toHaveCount(0);
 });
