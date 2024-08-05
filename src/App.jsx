@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import LoginForm from './assets/LoginForm'
+import { Router } from './routes/Router'
 
 function App() {
   return (
     <>
-      <LoginForm/>
+      <Router/>
     </>
   )
 }
