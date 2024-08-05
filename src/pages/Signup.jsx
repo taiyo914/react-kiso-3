@@ -86,21 +86,24 @@ const Signup = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Sign Up</h2>
+    <div className="max-w-md mx-auto my-10 bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-group">
-          <label>Username</label>
+      <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Username
           <input
             type="text"
+            className="w-full p-2 border border-gray-300 rounded"
             {...register("username", { required: "Username is required" })}
           />
-          {errors.username && <p className="error">{errors.username.message}</p>}
+          </label>
+          {errors.username && <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>}
         </div>
-        <div className="form-group">
-          <label>Email
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Email
             <input 
               type="email" 
+              className="w-full p-2 border border-gray-300 rounded"
               {...register("email", { 
                 required: "Email is required",
                 pattern: {
@@ -110,12 +113,13 @@ const Signup = () => {
               })} 
             />
           </label>
-          {errors.email && <p className="error">{errors.email.message}</p>}
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </div>
-        <div className="form-group">
-          <label>Password
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Password
             <input 
               type="password" 
+              className="w-full p-2 border border-gray-300 rounded"
               {...register("password", { 
                 required: "Password is required",
                 minLength: {
@@ -125,21 +129,22 @@ const Signup = () => {
               })} 
             />
           </label>
-          {errors.password && <p className="error">{errors.password.message}</p>}
+          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
         </div>
-        <div className="form-group">
-          <label>Icon
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Icon
           <input
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
+            className="w-full p-2 border border-gray-300 rounded"
           />
           </label>
         </div>
-        <button type="submit" className="btn">Sign Up</button>
+        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:opacity-85 transition-opacity">Sign Up</button>
       </form>
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
+      <p className="text-center mt-4">
+        Already have an account? <Link to="/login" className="text-blue-500 hover:underline hover:opacity-75 transition-opacity">Login</Link>
       </p>
     </div>
   );

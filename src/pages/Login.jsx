@@ -36,38 +36,42 @@ const Login = () => {
 
 
   return (
-    <div className="form-container"> 
-      <h2>Login</h2>
+    <div className="max-w-md mx-auto my-10 bg-white p-8 border border-gray-300 rounded-lg shadow-lg"> 
+      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <label>Email
-            <input type="email" 
-            {...register("email", { 
-              required: "Email is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Invalid email address"
-              }
-            })} 
-          />
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Email
+            <input 
+              type="email" 
+              className="w-full p-2 border border-gray-300 rounded"
+              {...register("email", { 
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email address"
+                }
+              })} 
+            />
           </label>
-          {errors.email && <p className="error">{errors.email.message}</p>}
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </div>
-        <div className="form-group">
-          <label>Password
-            <input type="password"  
-            {...register("password", { 
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters"
-              }
-            })}
-          />
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Password
+            <input 
+              type="password" 
+              className="w-full p-2 border border-gray-300 rounded"
+              {...register("password", { 
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters"
+                }
+              })}
+            />
           </label>
-          {errors.password && <p className="error">{errors.password.message}</p>}
+          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
         </div>
-        <button type="submit" className="btn">Login</button>
+        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:opacity-85 transition-opacity" >Login</button>
       </form>
     </div>
   );
