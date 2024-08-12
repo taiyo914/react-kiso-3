@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementOffset, decrementOffset } from './booksListSlice';
+import { incrementOffset, decrementOffset } from './offsetSlice';
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const {offset} = useSelector((state) => state.booksList);
+  const offset = useSelector((state) => state.offset);
 
   return (
     <div className="flex justify-center space-x-4 mt-6">

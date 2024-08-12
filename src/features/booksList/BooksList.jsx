@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateBooks } from './booksListSlice';
+import React, { useEffect, useState} from 'react';
+import { useSelector } from 'react-redux';
 
 const BooksList = () => {
-  const {books, offset} = useSelector((state) => state.booksList);
-  const dispatch = useDispatch();
+  const offset = useSelector((state) => state.offset);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -14,7 +13,7 @@ const BooksList = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        dispatch(updateBooks(data));
+        setBooks(data);
       } catch (err) {
         console.log(err.message)
       }

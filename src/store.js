@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import booksListReducer from './features/booksList/booksListSlice';
+import offsetReducer from './features/booksList/offsetSlice';
 
 export const store = configureStore({
   reducer: {
-    booksList: booksListReducer,
+    offset: offsetReducer,
   },
 });
